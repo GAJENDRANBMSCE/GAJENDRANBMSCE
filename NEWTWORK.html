@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B M S INVENTORY MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="NEWTWORK.css">
+</head>
+<body>
+    <section>
+        <div class="menu">
+            <ul>
+                <a>B M S INVENTORY MANAGEMENT SYSTEM</a><br>
+                <a>Central Processing Unit(NEWTWORK)</a>
+                
+                
+            </ul>
+        </div>
+    </section>
+    <img src="5.jpg" style="width: 1950px; height: 850px; margin-left: -950px; margin-top: 10px;">
+    
+    <form name="submit-to-google-sheet">
+        <label>USER NAME</label><br>
+        <input type="text" name="USER NAME" required style="height: 25px; width: 230px;"><br><br>
+        <label>PHONE NUMBER</label><br>
+        <input type="text" name="PHONE NUMBER" required style="height: 25px; width: 230px;"><br><br>
+        <label>LAN</label><br>
+        <input type="text" name="LAN" required style="height: 25px; width: 290px;"><br><br>
+        <label>WAN</label><br>
+        <input type="text" name="WAN" required style="height: 25px; width: 290px;"><br><br>
+        <label>NETWORK PROBLEM</label><br>
+        <input type="text" name="NETWORK PROBLEM" cols="20" required style="height: 25px; width: 230px;"><br><br>
+        </textarea><br><br>
+        <input type="submit" name="submit" style="font-size: 20px;">
+ 
+        <button><a href="home.html">home</a> </button>
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw_sJjy9S1ZkEJPQ8ME41w4rpI6ORpPH_wsamdLTdCVEn1CLnMVjRyvnxmCM4C5otidug/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const Success= document.getElementById('success');
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+             success.innerHTML="data successfully submit";
+
+              setTimeout(function()
+            {
+                success.innerHTML="";
+            },5000)
+            form.reset();
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
+
+
+
